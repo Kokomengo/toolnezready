@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remove objects from a photo · ToolNez</title>
+<meta name="description" content="Paint over whatever is in the way and the gap fills itself in. Instructions, worked example and limitations.">
+<meta name="theme-color" content="#101418">
+<link rel="canonical" href="https://toolnez.vercel.app/tools/remove-objects">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolNez">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://toolnez.vercel.app/tools/remove-objects">
+<meta property="og:title" content="Remove objects from a photo · ToolNez">
+<meta property="og:description" content="Paint over whatever is in the way and the gap fills itself in. Instructions, worked example and limitations.">
+<meta property="og:image" content="https://toolnez.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Remove objects from a photo · ToolNez">
+<meta name="twitter:description" content="Paint over whatever is in the way and the gap fills itself in. Instructions, worked example and limitations.">
+<meta name="twitter:image" content="https://toolnez.vercel.app/og.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111'/><path d='M9 20l4.5-9 4 6 2.5-3.5L23 20z' fill='%23e8a33d'/></svg>">
+
+<!-- Google AdSense: site verification meta tag (method 3) -->
+<meta name="google-adsense-account" content="ca-pub-2170099684772121">
+
+<script src="/adsense.js"></script>
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="/" data-link aria-label="ToolNez, home">
+      <svg viewBox="0 0 32 32" class="mark" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M8 21l5-10 4.4 6.6L20 13l4 8z"/></svg>
+      <span>Tool<em>Nez</em></span>
+    </a>
+
+    <div class="finder">
+      <svg viewBox="0 0 24 24" class="fico" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search: compress, trim video, BMI…" autocomplete="off" aria-label="Search tools">
+      <kbd>/</kbd>
+      <div id="qres" class="qres" role="listbox"></div>
+    </div>
+
+    <nav class="links" id="links">
+      <a href="/guides" data-link>Guides</a>
+      <a href="/c/image" data-link>Image</a>
+      <a href="/c/video" data-link>Video</a>
+      <a href="/c/pdf" data-link>PDF</a>
+      <a href="/c/text" data-link>Text</a>
+      <a href="/c/calc" data-link>Calculators</a>
+    </nav>
+
+    <button id="theme" class="ghost-btn" title="Switch theme" aria-label="Switch theme"></button>
+    <button id="burger" class="ghost-btn mob" aria-label="Menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="main"><div class="wrap">
+      <div class="crumb"><a href="/" data-link>Home</a> / <a href="/c/image" data-link>Image</a> / <span>Remove objects from a photo</span></div>
+      <div class="thead"><span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 20H20"/><path d="M15.5 4.5l4 4a1.6 1.6 0 010 2.3l-7.2 7.2H8.6l-3.1-3.1a1.6 1.6 0 010-2.3l7.7-7.7a1.6 1.6 0 012.3 0z"/><path d="M10.2 7.8l6 6"/></svg></span><div><h1>Remove objects from a photo</h1><p>Paint over whatever is in the way and the gap fills itself in.</p></div>
+        <button class="ghost-btn fav-big " data-fav="remove-objects" aria-label="Favourite Remove objects from a photo"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button></div>
+      <div class="box prose"><p>Fill a painted region from surrounding pixels using a local diffusion algorithm. It works best for small distractions against simple textures, rather than reconstructing a hidden person or detailed object.</p><h2>How to use this tool</h2><ol><li>Open a photo you own and choose a brush size.</li><li>Paint over the object, leaving a little margin around its edges.</li><li>Run the fill, inspect the result, and undo or retry a smaller area if needed.</li></ol></div>
+      <noscript><div class="box prose"><p>The instructions are available without JavaScript. Enable JavaScript to run the tool locally in your browser.</p></div></noscript>
+      <div class="box" id="workbench">
+    <div class="dropzone" data-dz tabindex="0" role="button">
+      <svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7.5 8.5L12 4l4.5 4.5"/><path d="M4 17v3h16v-3"/></svg><b>Drop the image you want to retouch</b><span>Then paint over whatever you want gone</span>
+      <input type="file" accept="image/*"  hidden>
+    </div>
+    <div id="tools" hidden>
+      <div class="actions" style="margin-top:14px">
+        <div class="segment" id="mode">
+          <button data-m="brush" class="on">Brush</button>
+          <button data-m="rect">Rectangle</button>
+          <button data-m="erase">Unmark</button>
+        </div>
+        <div class="segment" id="fill">
+          <button data-f="smart" class="on">Fill in</button>
+          <button data-f="pixel">Pixelate</button>
+          <button data-f="blur">Blur</button>
+        </div>
+        <span class="tiny dim" id="hint">Mark the area in red and press Apply.</span>
+      </div>
+      <div class="grid2" style="margin-top:12px">
+        <div class="field"><div class="slider-head"><label class="lb">Brush size</label><b id="szv">28 px</b></div>
+          <input type="range" id="sz" min="6" max="120" value="28"></div>
+        <div class="field"><div class="slider-head"><label class="lb">Fill strength</label><b id="itv">medium</b></div>
+          <input type="range" id="it" min="0" max="2" value="1"></div>
+      </div>
+      <div class="stage" id="stage" style="touch-action:none;position:relative"></div>
+      <div class="actions">
+        <button class="btn" id="apply"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 20H20"/><path d="M15.5 4.5l4 4a1.6 1.6 0 010 2.3l-7.2 7.2H8.6l-3.1-3.1a1.6 1.6 0 010-2.3l7.7-7.7a1.6 1.6 0 012.3 0z"/><path d="M10.2 7.8l6 6"/></svg>Apply</button>
+        <button class="btn sec" id="undo">Undo</button>
+        <button class="btn sec" id="clearmask">Clear the selection</button>
+        <button class="btn sec" id="reset">Back to the original</button>
+        <button class="btn sec" id="save"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7.5 10.5L12 15l4.5-4.5"/><path d="M4 18v2.5h16V18"/></svg>Save</button>
+        <span class="tiny dim" id="status"></span>
+      </div>
+    </div>
+    <div class="note"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span><b>Use this on your own images and videos.</b>
+  Removing another author's signature or mark in order to reuse their work is copyright infringement,
+  and in many countries an offence as well.</span></div></div>
+      <div class="box prose"><h2>Worked example</h2><p>A tiny sensor spot against a plain sky is a better candidate than a large object covering a brick pattern. Several small selections often look better than one broad mask.</p><h2>Limitations and checks</h2><p>The fill estimates missing pixels and may smear detail. It is not a generative AI reconstruction. Only process material you have rights to; do not use it to remove ownership marks from third-party work.</p>
+        
+        <p>Read the <a href="/guides/image-formats" data-link>related workflow guide</a> for choosing settings and verifying exports.</p></div>
+      <div class="box prose"><h2>How the fill works</h2>
+    <p>There is no artificial intelligence behind it: the algorithm takes the pixels at the edge of the area you
+    painted and propagates them inwards layer by layer, then smooths the result with diffusion iterations and
+    adds a touch of grain so it does not end up a flat patch. It is the classic diffusion <em>inpainting</em>
+    technique.</p>
+    <h2>When it works well and when it does not</h2>
+    <ul>
+      <li><strong>Very well:</strong> text or a logo over sky, a wall, grass, water, blurred backgrounds or gradients.</li>
+      <li><strong>So-so:</strong> areas with a fine repeating texture, such as brickwork or fabric.</li>
+      <li><strong>Badly:</strong> large objects in the middle of straight-line structures, like a window, or a face.
+      There you are better off with <em>Pixelate</em> or <em>Blur</em>, which hide without inventing.</li>
+    </ul>
+    <p>Tip: instead of one big pass, do several small ones. Paint a piece, apply, paint the next. The result is
+    noticeably cleaner and you can always undo.</p>
+    <h2>An honest warning</h2>
+    <p>This tool is for your own material: the logo you added, the orange date your camera burned in, a number
+    plate, a bin that ruins the shot, or personal data visible in a screenshot. Taking a photographer's signature
+    off so you can reuse their work is not just wrong, it is copyright infringement, and we are not going to
+    help with it.</p></div>
+      <div class="box"><h2>Common questions</h2><details class="qa"><summary>Can it remove a very large piece of text?</summary><p>The bigger the area, the more the algorithm has to invent and the blurrier it gets. Up to 10-15% of the image usually looks convincing if the background is uniform.</p></details><details class="qa"><summary>Does the rest of the photo lose quality?</summary><p>No. Only the pixels you marked are touched; everything else is saved unchanged. If the original was a PNG, so is the output.</p></details></div>
+      <section class="sect"><div class="sect-head"><div><h2>Related tools</h2></div></div><div class="cards">
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="convert-image" title="Save to favourites" aria-label="Favourite Convert images"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/convert-image" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M4 17l4.6-4.4a2 2 0 012.8 0L20 20"/></svg></span><span><h3>Convert images</h3><p>PNG to JPG, to WebP, or the other way round. Many at once.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="compress-image" title="Save to favourites" aria-label="Favourite Compress photos"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/compress-image" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h5M4 4v5M4 4l6 6M20 20h-5M20 20v-5M20 20l-6-6"/><rect x="9" y="9" width="6" height="6" rx="1.2"/></svg></span><span><h3>Compress photos</h3><p>Push the file size down to just before it shows.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="resize-image" title="Save to favourites" aria-label="Favourite Resize image"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/resize-image" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="13" height="13" rx="2"/><path d="M20 10v9a1.5 1.5 0 01-1.5 1.5H10"/><path d="M13 13l6 6M19 15v4h-4"/></svg></span><span><h3>Resize image</h3><p>Exact pixels or a percentage, with the ratio locked.</p></span>
+      </a>
+    </article></div></section>
+    </div></main>
+
+<footer class="foot">
+  <div class="wrap fgrid">
+    <div>
+      <a class="brand" href="/" data-link>
+        <svg viewBox="0 0 32 32" class="mark" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M8 21l5-10 4.4 6.6L20 13l4 8z"/></svg>
+        <span>Tool<em>Nez</em></span>
+      </a>
+      <p class="dim">A collection of <b id="ntools">36</b> tools, still free and still without an account.</p>
+    </div>
+    <div><h4>Tools</h4>
+      <a href="/c/image" data-link>Image</a><a href="/c/video" data-link>Video</a><a href="/c/pdf" data-link>PDF</a>
+      <a href="/c/text" data-link>Text</a><a href="/c/calc" data-link>Calculators</a><a href="/c/util" data-link>Utilities</a>
+    </div>
+    <div><h4>The site</h4>
+      <a href="/p/about" data-link>About ToolNez</a>
+      <a href="/p/editorial-policy" data-link>Editorial policy</a>
+      <a href="/guides" data-link>Guides</a>
+      <a href="/p/how-it-works" data-link>How it works</a>
+      <a href="/p/changelog" data-link>What's new</a>
+      <a href="/p/contact" data-link>Contact</a>
+    </div>
+    <div><h4>Legal</h4>
+      <a href="/p/privacy" data-link>Privacy</a>
+      <a href="/p/terms" data-link>Terms</a>
+      <a href="/p/cookies" data-link>Cookies and ads</a>
+    </div>
+  </div>
+  <div class="wrap fbottom">
+    <span>© <span id="yr">2026</span> ToolNez</span>
+    <span class="dim">Built with HTML, CSS and a lot of JavaScript. No accounts, no watermarks.</span>
+  </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="/lib.js"></script>
+<script src="/editorial.js"></script>
+<script src="/guides.js"></script>
+<script src="/site-pages.js"></script>
+<script src="/core.js"></script>
+<script src="/tools-media.js"></script>
+<script src="/tools-docs.js"></script>
+<script src="/tools-calc.js"></script>
+<script src="/tools-retouch.js"></script>
+<script>ToolNez.start();</script>
+</body>
+</html>

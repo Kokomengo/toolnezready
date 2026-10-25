@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convert images · ToolNez</title>
+<meta name="description" content="PNG to JPG, to WebP, or the other way round. Many at once. Instructions, worked example and limitations.">
+<meta name="theme-color" content="#101418">
+<link rel="canonical" href="https://toolnez.vercel.app/tools/convert-image">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolNez">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://toolnez.vercel.app/tools/convert-image">
+<meta property="og:title" content="Convert images · ToolNez">
+<meta property="og:description" content="PNG to JPG, to WebP, or the other way round. Many at once. Instructions, worked example and limitations.">
+<meta property="og:image" content="https://toolnez.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convert images · ToolNez">
+<meta name="twitter:description" content="PNG to JPG, to WebP, or the other way round. Many at once. Instructions, worked example and limitations.">
+<meta name="twitter:image" content="https://toolnez.vercel.app/og.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111'/><path d='M9 20l4.5-9 4 6 2.5-3.5L23 20z' fill='%23e8a33d'/></svg>">
+
+<!-- Google AdSense: site verification meta tag (method 3) -->
+<meta name="google-adsense-account" content="ca-pub-2170099684772121">
+
+<script src="/adsense.js"></script>
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="/" data-link aria-label="ToolNez, home">
+      <svg viewBox="0 0 32 32" class="mark" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M8 21l5-10 4.4 6.6L20 13l4 8z"/></svg>
+      <span>Tool<em>Nez</em></span>
+    </a>
+
+    <div class="finder">
+      <svg viewBox="0 0 24 24" class="fico" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search: compress, trim video, BMI…" autocomplete="off" aria-label="Search tools">
+      <kbd>/</kbd>
+      <div id="qres" class="qres" role="listbox"></div>
+    </div>
+
+    <nav class="links" id="links">
+      <a href="/guides" data-link>Guides</a>
+      <a href="/c/image" data-link>Image</a>
+      <a href="/c/video" data-link>Video</a>
+      <a href="/c/pdf" data-link>PDF</a>
+      <a href="/c/text" data-link>Text</a>
+      <a href="/c/calc" data-link>Calculators</a>
+    </nav>
+
+    <button id="theme" class="ghost-btn" title="Switch theme" aria-label="Switch theme"></button>
+    <button id="burger" class="ghost-btn mob" aria-label="Menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="main"><div class="wrap">
+      <div class="crumb"><a href="/" data-link>Home</a> / <a href="/c/image" data-link>Image</a> / <span>Convert images</span></div>
+      <div class="thead"><span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M4 17l4.6-4.4a2 2 0 012.8 0L20 20"/></svg></span><div><h1>Convert images</h1><p>PNG to JPG, to WebP, or the other way round. Many at once.</p></div>
+        <button class="ghost-btn fav-big " data-fav="convert-image" aria-label="Favourite Convert images"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button></div>
+      <div class="box prose"><p>Choose a file format for the destination where your picture will be used. This converter decodes the original image and exports a new raster image; changing the filename alone would not convert it.</p><h2>How to use this tool</h2><ol><li>Add one or more readable images.</li><li>Choose WebP for modern websites, JPEG for broad compatibility, or PNG for transparency.</li><li>Set quality for JPEG or WebP, convert, and compare the preview and file size before saving.</li></ol></div>
+      <noscript><div class="box prose"><p>The instructions are available without JavaScript. Enable JavaScript to run the tool locally in your browser.</p></div></noscript>
+      <div class="box" id="workbench">
+    <div class="dropzone" data-dz tabindex="0" role="button">
+      <svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7.5 8.5L12 4l4.5 4.5"/><path d="M4 17v3h16v-3"/></svg><b>Drop your images here</b><span>PNG, JPG, WebP, GIF, BMP or AVIF &middot; several at a time</span>
+      <input type="file" accept="image/*" multiple hidden>
+    </div>
+    <div class="filelist" id="inbox"></div>
+    <div class="grid2">
+      <div><label class="lb" for="fmt">Convert to</label>
+        <select id="fmt"><option value="image/webp">WebP &middot; smallest files</option>
+        <option value="image/jpeg">JPG &middot; photos and email</option>
+        <option value="image/png">PNG &middot; keeps transparency</option></select></div>
+      <div class="field"><div class="slider-head"><label class="lb" for="qual">Quality</label><b id="qualv">90%</b></div>
+   <input type="range" id="qual" min="40" max="100" value="90"></div>
+    </div>
+    <div class="actions"><button class="btn" id="go" disabled><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M4 17l4.6-4.4a2 2 0 012.8 0L20 20"/></svg>Convert</button>
+      <button class="btn sec" id="clear">Clear</button></div>
+    <div class="filelist" id="out"></div></div>
+      <div class="box prose"><h2>Worked example</h2><p>For a transparent shop logo, choose PNG or WebP. For a photograph attached to an email, choose JPEG. A larger output is possible when the original was already compressed.</p><h2>Limitations and checks</h2><p>Animation and original metadata are not preserved. JPEG cannot retain transparency. HEIC and AVIF input depend on the browser decoder; use a supported source if loading fails.</p>
+        
+        <p>Read the <a href="/guides/image-formats" data-link>related workflow guide</a> for choosing settings and verifying exports.</p></div>
+      <div class="box prose"><h2>Which format to pick</h2>
+    <p><strong>WebP</strong> often produces smaller files than JPEG and supports transparency,
+    which makes it the default choice for anything going on a modern website. <strong>JPG</strong> is still the safest
+    bet when you are emailing a photo or uploading to an older portal. <strong>PNG</strong> only earns its size with
+    logos, screenshots and anything that needs a transparent background.</p>
+    <p>Converting also drops the EXIF metadata, camera GPS coordinates included. That is a handy side effect when you
+    are about to publish a photo.</p></div>
+      <div class="box"><h2>Common questions</h2><details class="qa"><summary>Can it convert iPhone HEIC files?</summary><p>Only if your browser can open them (Safari can, Chrome on Windows usually cannot). If the image never appears in the list, the browser did not recognise it.</p></details></div>
+      <section class="sect"><div class="sect-head"><div><h2>Related tools</h2></div></div><div class="cards">
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="compress-image" title="Save to favourites" aria-label="Favourite Compress photos"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/compress-image" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h5M4 4v5M4 4l6 6M20 20h-5M20 20v-5M20 20l-6-6"/><rect x="9" y="9" width="6" height="6" rx="1.2"/></svg></span><span><h3>Compress photos</h3><p>Push the file size down to just before it shows.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="resize-image" title="Save to favourites" aria-label="Favourite Resize image"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/resize-image" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="13" height="13" rx="2"/><path d="M20 10v9a1.5 1.5 0 01-1.5 1.5H10"/><path d="M13 13l6 6M19 15v4h-4"/></svg></span><span><h3>Resize image</h3><p>Exact pixels or a percentage, with the ratio locked.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="crop-image" title="Save to favourites" aria-label="Favourite Crop image"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/crop-image" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2v14.5A1.5 1.5 0 007.5 18H22"/><path d="M2 6h14.5A1.5 1.5 0 0118 7.5V22"/></svg></span><span><h3>Crop image</h3><p>Drag the frame, or lock it to a fixed ratio.</p></span>
+      </a>
+    </article></div></section>
+    </div></main>
+
+<footer class="foot">
+  <div class="wrap fgrid">
+    <div>
+      <a class="brand" href="/" data-link>
+        <svg viewBox="0 0 32 32" class="mark" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M8 21l5-10 4.4 6.6L20 13l4 8z"/></svg>
+        <span>Tool<em>Nez</em></span>
+      </a>
+      <p class="dim">A collection of <b id="ntools">36</b> tools, still free and still without an account.</p>
+    </div>
+    <div><h4>Tools</h4>
+      <a href="/c/image" data-link>Image</a><a href="/c/video" data-link>Video</a><a href="/c/pdf" data-link>PDF</a>
+      <a href="/c/text" data-link>Text</a><a href="/c/calc" data-link>Calculators</a><a href="/c/util" data-link>Utilities</a>
+    </div>
+    <div><h4>The site</h4>
+      <a href="/p/about" data-link>About ToolNez</a>
+      <a href="/p/editorial-policy" data-link>Editorial policy</a>
+      <a href="/guides" data-link>Guides</a>
+      <a href="/p/how-it-works" data-link>How it works</a>
+      <a href="/p/changelog" data-link>What's new</a>
+      <a href="/p/contact" data-link>Contact</a>
+    </div>
+    <div><h4>Legal</h4>
+      <a href="/p/privacy" data-link>Privacy</a>
+      <a href="/p/terms" data-link>Terms</a>
+      <a href="/p/cookies" data-link>Cookies and ads</a>
+    </div>
+  </div>
+  <div class="wrap fbottom">
+    <span>© <span id="yr">2026</span> ToolNez</span>
+    <span class="dim">Built with HTML, CSS and a lot of JavaScript. No accounts, no watermarks.</span>
+  </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="/lib.js"></script>
+<script src="/editorial.js"></script>
+<script src="/guides.js"></script>
+<script src="/site-pages.js"></script>
+<script src="/core.js"></script>
+<script src="/tools-media.js"></script>
+<script src="/tools-docs.js"></script>
+<script src="/tools-calc.js"></script>
+<script src="/tools-retouch.js"></script>
+<script>ToolNez.start();</script>
+</body>
+</html>

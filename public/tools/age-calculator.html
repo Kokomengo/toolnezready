@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Age calculator · ToolNez</title>
+<meta name="description" content="Years, months, days lived and how long until the next birthday. Instructions, worked example and limitations.">
+<meta name="theme-color" content="#101418">
+<link rel="canonical" href="https://toolnez.vercel.app/tools/age-calculator">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolNez">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://toolnez.vercel.app/tools/age-calculator">
+<meta property="og:title" content="Age calculator · ToolNez">
+<meta property="og:description" content="Years, months, days lived and how long until the next birthday. Instructions, worked example and limitations.">
+<meta property="og:image" content="https://toolnez.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Age calculator · ToolNez">
+<meta name="twitter:description" content="Years, months, days lived and how long until the next birthday. Instructions, worked example and limitations.">
+<meta name="twitter:image" content="https://toolnez.vercel.app/og.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111'/><path d='M9 20l4.5-9 4 6 2.5-3.5L23 20z' fill='%23e8a33d'/></svg>">
+
+<!-- Google AdSense: site verification meta tag (method 3) -->
+<meta name="google-adsense-account" content="ca-pub-2170099684772121">
+
+<script src="/adsense.js"></script>
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="/" data-link aria-label="ToolNez, home">
+      <svg viewBox="0 0 32 32" class="mark" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M8 21l5-10 4.4 6.6L20 13l4 8z"/></svg>
+      <span>Tool<em>Nez</em></span>
+    </a>
+
+    <div class="finder">
+      <svg viewBox="0 0 24 24" class="fico" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search: compress, trim video, BMI…" autocomplete="off" aria-label="Search tools">
+      <kbd>/</kbd>
+      <div id="qres" class="qres" role="listbox"></div>
+    </div>
+
+    <nav class="links" id="links">
+      <a href="/guides" data-link>Guides</a>
+      <a href="/c/image" data-link>Image</a>
+      <a href="/c/video" data-link>Video</a>
+      <a href="/c/pdf" data-link>PDF</a>
+      <a href="/c/text" data-link>Text</a>
+      <a href="/c/calc" data-link>Calculators</a>
+    </nav>
+
+    <button id="theme" class="ghost-btn" title="Switch theme" aria-label="Switch theme"></button>
+    <button id="burger" class="ghost-btn mob" aria-label="Menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="main"><div class="wrap">
+      <div class="crumb"><a href="/" data-link>Home</a> / <a href="/c/calc" data-link>Calculators</a> / <span>Age calculator</span></div>
+      <div class="thead"><span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M5 20v-6a2 2 0 012-2h10a2 2 0 012 2v6"/><path d="M12 12V8M9 8V6M15 8V6"/></svg></span><div><h1>Age calculator</h1><p>Years, months, days lived and how long until the next birthday.</p></div>
+        <button class="ghost-btn fav-big " data-fav="age-calculator" aria-label="Favourite Age calculator"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button></div>
+      <div class="box prose"><p>Measure elapsed calendar time between a birth date and a chosen reference date. This is useful for planning dates, but calendar month arithmetic can differ at month ends.</p><h2>How to use this tool</h2><ol><li>Enter the birth date.</li><li>Choose the date on which age should be measured.</li><li>Review years, months, days and the next-birthday information.</li></ol></div>
+      <noscript><div class="box prose"><p>The instructions are available without JavaScript. Enable JavaScript to run the tool locally in your browser.</p></div></noscript>
+      <div class="box" id="workbench">
+    <div class="grid2">
+      <div><label class="lb" for="n">Date of birth</label><input type="date" id="n"></div>
+      <div><label class="lb" for="h">Work it out as of</label><input type="date" id="h"></div>
+    </div>
+    <div class="readout" id="out" style="margin-top:16px">—</div>
+    <div class="result" id="detail"></div></div>
+      <div class="box prose"><h2>Worked example</h2><p>For a birth date of 15 June 2000 and a reference date of 15 June 2025, the age is 25 years. Use a future reference date to plan a milestone.</p><h2>Limitations and checks</h2><p>Month anniversaries use the last valid day when a month is shorter; February 29 birthdays use February 28 in non-leap years. Calendar days are measured without time-zone offsets. These results are not legal age determinations; confirm official cutoffs with the relevant institution.</p>
+        
+        </div>
+      
+      
+      <section class="sect"><div class="sect-head"><div><h2>Related tools</h2></div></div><div class="cards">
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="percentage" title="Save to favourites" aria-label="Favourite Percentages"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/percentage" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5L5 19"/><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></span><span><h3>Percentages</h3><p>The four percentage sums everybody ends up searching for.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="bmi" title="Save to favourites" aria-label="Favourite Body mass index"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/bmi" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M7 8h10"/><path d="M5 20h14"/><path d="M4 12l3-4 3 4a3 3 0 01-6 0zM14 12l3-4 3 4a3 3 0 01-6 0z"/></svg></span><span><h3>Body mass index</h3><p>BMI, the healthy range, and what it actually tells you.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="loan-payment" title="Save to favourites" aria-label="Favourite Loan payment"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/loan-payment" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5L12 4l9 5.5"/><path d="M5 10v8M9.6 10v8M14.4 10v8M19 10v8M3 20.5h18"/></svg></span><span><h3>Loan payment</h3><p>Mortgage or personal loan, with the full amortisation table.</p></span>
+      </a>
+    </article></div></section>
+    </div></main>
+
+<footer class="foot">
+  <div class="wrap fgrid">
+    <div>
+      <a class="brand" href="/" data-link>
+        <svg viewBox="0 0 32 32" class="mark" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M8 21l5-10 4.4 6.6L20 13l4 8z"/></svg>
+        <span>Tool<em>Nez</em></span>
+      </a>
+      <p class="dim">A collection of <b id="ntools">36</b> tools, still free and still without an account.</p>
+    </div>
+    <div><h4>Tools</h4>
+      <a href="/c/image" data-link>Image</a><a href="/c/video" data-link>Video</a><a href="/c/pdf" data-link>PDF</a>
+      <a href="/c/text" data-link>Text</a><a href="/c/calc" data-link>Calculators</a><a href="/c/util" data-link>Utilities</a>
+    </div>
+    <div><h4>The site</h4>
+      <a href="/p/about" data-link>About ToolNez</a>
+      <a href="/p/editorial-policy" data-link>Editorial policy</a>
+      <a href="/guides" data-link>Guides</a>
+      <a href="/p/how-it-works" data-link>How it works</a>
+      <a href="/p/changelog" data-link>What's new</a>
+      <a href="/p/contact" data-link>Contact</a>
+    </div>
+    <div><h4>Legal</h4>
+      <a href="/p/privacy" data-link>Privacy</a>
+      <a href="/p/terms" data-link>Terms</a>
+      <a href="/p/cookies" data-link>Cookies and ads</a>
+    </div>
+  </div>
+  <div class="wrap fbottom">
+    <span>© <span id="yr">2026</span> ToolNez</span>
+    <span class="dim">Built with HTML, CSS and a lot of JavaScript. No accounts, no watermarks.</span>
+  </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="/lib.js"></script>
+<script src="/editorial.js"></script>
+<script src="/guides.js"></script>
+<script src="/site-pages.js"></script>
+<script src="/core.js"></script>
+<script src="/tools-media.js"></script>
+<script src="/tools-docs.js"></script>
+<script src="/tools-calc.js"></script>
+<script src="/tools-retouch.js"></script>
+<script>ToolNez.start();</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+# ToolNez
+
+36 free browser tools with instructions, examples and limitations. Content is in English.
+
+- [Convert images](https://toolnez.vercel.app/tools/convert-image): PNG to JPG, to WebP, or the other way round. Many at once.
+- [Compress photos](https://toolnez.vercel.app/tools/compress-image): Push the file size down to just before it shows.
+- [Resize image](https://toolnez.vercel.app/tools/resize-image): Exact pixels or a percentage, with the ratio locked.
+- [Crop image](https://toolnez.vercel.app/tools/crop-image): Drag the frame, or lock it to a fixed ratio.
+- [Add a watermark](https://toolnez.vercel.app/tools/add-watermark): Your text over the photo, at the opacity and corner you choose.
+- [Pull the colour palette](https://toolnez.vercel.app/tools/color-palette): The dominant colours of a photo, in HEX and RGB.
+- [Generate favicons](https://toolnez.vercel.app/tools/favicon): Every size a site asks for, bundled in a ZIP.
+- [Trim video](https://toolnez.vercel.app/tools/trim-video): Keep the part that matters and drop the rest.
+- [Compress video](https://toolnez.vercel.app/tools/compress-video): Drop the resolution and bitrate until it fits wherever it needs to go.
+- [Convert video](https://toolnez.vercel.app/tools/convert-video): Move a clip to WebM or MP4 and set the frame rate.
+- [Video to GIF](https://toolnez.vercel.app/tools/video-to-gif): A short clip turned into an animated GIF, with a hand-written encoder.
+- [Extract frames](https://toolnez.vercel.app/tools/video-frames): Turn the video into still images and grab them as a ZIP.
+- [Extract the audio](https://toolnez.vercel.app/tools/extract-audio): Pull the sound out of a video as a WAV file.
+- [Images to PDF](https://toolnez.vercel.app/tools/images-to-pdf): Loose photos or scans turned into one document.
+- [PDF to images](https://toolnez.vercel.app/tools/pdf-to-images): Every page as a PNG, one by one or zipped.
+- [Get the text out of a PDF](https://toolnez.vercel.app/tools/pdf-to-text): Copy and paste without fighting the viewer.
+- [Text to PDF](https://toolnez.vercel.app/tools/text-to-pdf): Paste some notes and take them away as a paginated PDF.
+- [Markdown editor](https://toolnez.vercel.app/tools/markdown-editor): Write on the left, watch it render on the right.
+- [Word count](https://toolnez.vercel.app/tools/word-count): Words, characters and how long it takes to read.
+- [Change case](https://toolnez.vercel.app/tools/change-case): Fix a headline someone typed in all caps, in two clicks.
+- [Clean up text](https://toolnez.vercel.app/tools/clean-text): Duplicates, stray spaces, accents and odd line breaks.
+- [Percentages](https://toolnez.vercel.app/tools/percentage): The four percentage sums everybody ends up searching for.
+- [Body mass index](https://toolnez.vercel.app/tools/bmi): BMI, the healthy range, and what it actually tells you.
+- [Loan payment](https://toolnez.vercel.app/tools/loan-payment): Mortgage or personal loan, with the full amortisation table.
+- [Compound interest](https://toolnez.vercel.app/tools/compound-interest): What happens if you put the same amount in every month for years.
+- [Age calculator](https://toolnez.vercel.app/tools/age-calculator): Years, months, days lived and how long until the next birthday.
+- [Rule of three](https://toolnez.vercel.app/tools/rule-of-three): Direct or inverse, without having to remember which is which.
+- [Unit converter](https://toolnez.vercel.app/tools/unit-converter): Metres, pounds, degrees, gigabytes and whatever else comes up.
+- [Split the bill](https://toolnez.vercel.app/tools/split-the-bill): Tip included, and what each person owes.
+- [Password generator](https://toolnez.vercel.app/tools/password-generator): Solid passwords and an honest meter of how long they hold up.
+- [Hash calculator](https://toolnez.vercel.app/tools/hash): SHA-256 and friends, from a piece of text or a file.
+- [Base64](https://toolnez.vercel.app/tools/base64): Encode and decode text or small files.
+- [JSON formatter](https://toolnez.vercel.app/tools/json-formatter): Tidy it, minify it, and find where the error is.
+- [Slug generator](https://toolnez.vercel.app/tools/slug): Turn a headline into a clean URL.
+- [Remove objects from a photo](https://toolnez.vercel.app/tools/remove-objects): Paint over whatever is in the way and the gap fills itself in.
+- [Cover an area in a video](https://toolnez.vercel.app/tools/cover-video-area): Blur, pixelate or black out a rectangle for the whole clip.
+
+Guides: https://toolnez.vercel.app/guides
+About: https://toolnez.vercel.app/p/about
+Privacy: https://toolnez.vercel.app/p/privacy
+Contact: https://toolnez.vercel.app/p/contact
+
+Local file processing; PDF reading downloads pdf.js on demand. Markdown drafts use browser storage. Advertising is disabled during review.

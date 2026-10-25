@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image tools · ToolNez</title>
+<meta name="description" content="Convert, compress and retouch photos without installing anything.">
+<meta name="theme-color" content="#101418">
+<link rel="canonical" href="https://toolnez.vercel.app/c/image">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolNez">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://toolnez.vercel.app/c/image">
+<meta property="og:title" content="Image tools · ToolNez">
+<meta property="og:description" content="Convert, compress and retouch photos without installing anything.">
+<meta property="og:image" content="https://toolnez.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image tools · ToolNez">
+<meta name="twitter:description" content="Convert, compress and retouch photos without installing anything.">
+<meta name="twitter:image" content="https://toolnez.vercel.app/og.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111'/><path d='M9 20l4.5-9 4 6 2.5-3.5L23 20z' fill='%23e8a33d'/></svg>">
+
+<!-- Google AdSense: site verification meta tag (method 3) -->
+<meta name="google-adsense-account" content="ca-pub-2170099684772121">
+
+<script src="/adsense.js"></script>
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="/" data-link aria-label="ToolNez, home">
+      <svg viewBox="0 0 32 32" class="mark" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M8 21l5-10 4.4 6.6L20 13l4 8z"/></svg>
+      <span>Tool<em>Nez</em></span>
+    </a>
+
+    <div class="finder">
+      <svg viewBox="0 0 24 24" class="fico" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search: compress, trim video, BMI…" autocomplete="off" aria-label="Search tools">
+      <kbd>/</kbd>
+      <div id="qres" class="qres" role="listbox"></div>
+    </div>
+
+    <nav class="links" id="links">
+      <a href="/guides" data-link>Guides</a>
+      <a href="/c/image" data-link>Image</a>
+      <a href="/c/video" data-link>Video</a>
+      <a href="/c/pdf" data-link>PDF</a>
+      <a href="/c/text" data-link>Text</a>
+      <a href="/c/calc" data-link>Calculators</a>
+    </nav>
+
+    <button id="theme" class="ghost-btn" title="Switch theme" aria-label="Switch theme"></button>
+    <button id="burger" class="ghost-btn mob" aria-label="Menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="main"><div class="wrap">
+      <div class="crumb"><a href="/" data-link>Home</a> / <span>Image</span></div>
+      <section class="hero" style="padding:28px 0 22px">
+        <h1>Image</h1><p class="lead">Convert, compress and retouch photos without installing anything.</p>
+      </section>
+      <div class="box prose"><h2>Choose the image operation first</h2><p>Convert when a destination requires a different format, compress when a file exceeds a size limit, resize when it needs exact pixel dimensions, and crop when the composition needs a different shape. These operations solve different problems: converting a large photograph to PNG often increases its size.</p><p>Keep the source file and compare the exported copy at full size. JPEG is suitable for photographs; PNG and WebP can preserve transparent backgrounds. Browser-based exports create raster copies and do not preserve original animation or camera metadata.</p></div><div class="cards">
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="convert-image" title="Save to favourites" aria-label="Favourite Convert images"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/convert-image" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M4 17l4.6-4.4a2 2 0 012.8 0L20 20"/></svg></span><span><h3>Convert images</h3><p>PNG to JPG, to WebP, or the other way round. Many at once.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="compress-image" title="Save to favourites" aria-label="Favourite Compress photos"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/compress-image" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h5M4 4v5M4 4l6 6M20 20h-5M20 20v-5M20 20l-6-6"/><rect x="9" y="9" width="6" height="6" rx="1.2"/></svg></span><span><h3>Compress photos</h3><p>Push the file size down to just before it shows.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="resize-image" title="Save to favourites" aria-label="Favourite Resize image"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/resize-image" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="13" height="13" rx="2"/><path d="M20 10v9a1.5 1.5 0 01-1.5 1.5H10"/><path d="M13 13l6 6M19 15v4h-4"/></svg></span><span><h3>Resize image</h3><p>Exact pixels or a percentage, with the ratio locked.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="crop-image" title="Save to favourites" aria-label="Favourite Crop image"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/crop-image" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2v14.5A1.5 1.5 0 007.5 18H22"/><path d="M2 6h14.5A1.5 1.5 0 0118 7.5V22"/></svg></span><span><h3>Crop image</h3><p>Drag the frame, or lock it to a fixed ratio.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="add-watermark" title="Save to favourites" aria-label="Favourite Add a watermark"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/add-watermark" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.2 6 10a6 6 0 01-12 0c0-3.8 6-10 6-10z"/><path d="M9.5 14.2a2.8 2.8 0 002.5 2.2"/></svg></span><span><h3>Add a watermark</h3><p>Your text over the photo, at the opacity and corner you choose.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="color-palette" title="Save to favourites" aria-label="Favourite Pull the colour palette"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/color-palette" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 100 18c1.4 0 2-1 1.5-2-.6-1.2.2-2.3 1.5-2.3H17a4 4 0 004-4c0-5-4-9.7-9-9.7z"/><circle cx="7.8" cy="11" r="1"/><circle cx="10.5" cy="7.4" r="1"/><circle cx="15" cy="8.2" r="1"/></svg></span><span><h3>Pull the colour palette</h3><p>The dominant colours of a photo, in HEX and RGB.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="favicon" title="Save to favourites" aria-label="Favourite Generate favicons"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/favicon" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5L12 21l9-4.5"/></svg></span><span><h3>Generate favicons</h3><p>Every size a site asks for, bundled in a ZIP.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="remove-objects" title="Save to favourites" aria-label="Favourite Remove objects from a photo"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/remove-objects" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 20H20"/><path d="M15.5 4.5l4 4a1.6 1.6 0 010 2.3l-7.2 7.2H8.6l-3.1-3.1a1.6 1.6 0 010-2.3l7.7-7.7a1.6 1.6 0 012.3 0z"/><path d="M10.2 7.8l6 6"/></svg></span><span><h3>Remove objects from a photo</h3><p>Paint over whatever is in the way and the gap fills itself in.</p></span>
+      </a>
+    </article></div>
+      <section class="sect">
+        <div class="sect-head"><div><h2>Other sections</h2></div></div>
+        <div class="cards">
+          <a class="tcard rise seen" href="/c/video" data-link><span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><path d="M8.2 7.6L20 18M20 6L8.2 16.4"/></svg></span>
+          <span><h3>Video</h3><p>Trim, compress and export clips straight from the browser.</p></span></a>
+          <a class="tcard rise seen" href="/c/pdf" data-link><span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/><path d="M9 14h1.2a1.2 1.2 0 000-2.4H9V17"/></svg></span>
+          <span><h3>PDF</h3><p>Put documents together and take them apart again.</p></span></a>
+          <a class="tcard rise seen" href="/c/text" data-link><span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M6 15.5v-7l3 3.4 3-3.4v7M16 8.5v5M16 13.5l-1.8-2M16 13.5l1.8-2"/></svg></span>
+          <span><h3>Text</h3><p>Write, count and tidy up. The boring part, done fast.</p></span></a>
+          <a class="tcard rise seen" href="/c/calc" data-link><span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5L5 19"/><circle cx="7.5" cy="7.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></span>
+          <span><h3>Calculators</h3><p>Everyday numbers: money, health, units and dates.</p></span></a>
+          <a class="tcard rise seen" href="/c/util" data-link><span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M15.5 12v2.2"/></svg></span>
+          <span><h3>Utilities</h3><p>Passwords, hashes and the developer odds and ends you reach for daily.</p></span></a></div>
+      </section>
+    </div></main>
+
+<footer class="foot">
+  <div class="wrap fgrid">
+    <div>
+      <a class="brand" href="/" data-link>
+        <svg viewBox="0 0 32 32" class="mark" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M8 21l5-10 4.4 6.6L20 13l4 8z"/></svg>
+        <span>Tool<em>Nez</em></span>
+      </a>
+      <p class="dim">A collection of <b id="ntools">36</b> tools, still free and still without an account.</p>
+    </div>
+    <div><h4>Tools</h4>
+      <a href="/c/image" data-link>Image</a><a href="/c/video" data-link>Video</a><a href="/c/pdf" data-link>PDF</a>
+      <a href="/c/text" data-link>Text</a><a href="/c/calc" data-link>Calculators</a><a href="/c/util" data-link>Utilities</a>
+    </div>
+    <div><h4>The site</h4>
+      <a href="/p/about" data-link>About ToolNez</a>
+      <a href="/p/editorial-policy" data-link>Editorial policy</a>
+      <a href="/guides" data-link>Guides</a>
+      <a href="/p/how-it-works" data-link>How it works</a>
+      <a href="/p/changelog" data-link>What's new</a>
+      <a href="/p/contact" data-link>Contact</a>
+    </div>
+    <div><h4>Legal</h4>
+      <a href="/p/privacy" data-link>Privacy</a>
+      <a href="/p/terms" data-link>Terms</a>
+      <a href="/p/cookies" data-link>Cookies and ads</a>
+    </div>
+  </div>
+  <div class="wrap fbottom">
+    <span>© <span id="yr">2026</span> ToolNez</span>
+    <span class="dim">Built with HTML, CSS and a lot of JavaScript. No accounts, no watermarks.</span>
+  </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="/lib.js"></script>
+<script src="/editorial.js"></script>
+<script src="/guides.js"></script>
+<script src="/site-pages.js"></script>
+<script src="/core.js"></script>
+<script src="/tools-media.js"></script>
+<script src="/tools-docs.js"></script>
+<script src="/tools-calc.js"></script>
+<script src="/tools-retouch.js"></script>
+<script>ToolNez.start();</script>
+</body>
+</html>

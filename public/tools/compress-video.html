@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compress video · ToolNez</title>
+<meta name="description" content="Drop the resolution and bitrate until it fits wherever it needs to go. Instructions, worked example and limitations.">
+<meta name="theme-color" content="#101418">
+<link rel="canonical" href="https://toolnez.vercel.app/tools/compress-video">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ToolNez">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://toolnez.vercel.app/tools/compress-video">
+<meta property="og:title" content="Compress video · ToolNez">
+<meta property="og:description" content="Drop the resolution and bitrate until it fits wherever it needs to go. Instructions, worked example and limitations.">
+<meta property="og:image" content="https://toolnez.vercel.app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Compress video · ToolNez">
+<meta name="twitter:description" content="Drop the resolution and bitrate until it fits wherever it needs to go. Instructions, worked example and limitations.">
+<meta name="twitter:image" content="https://toolnez.vercel.app/og.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111'/><path d='M9 20l4.5-9 4 6 2.5-3.5L23 20z' fill='%23e8a33d'/></svg>">
+
+<!-- Google AdSense: site verification meta tag (method 3) -->
+<meta name="google-adsense-account" content="ca-pub-2170099684772121">
+
+<script src="/adsense.js"></script>
+
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="/" data-link aria-label="ToolNez, home">
+      <svg viewBox="0 0 32 32" class="mark" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M8 21l5-10 4.4 6.6L20 13l4 8z"/></svg>
+      <span>Tool<em>Nez</em></span>
+    </a>
+
+    <div class="finder">
+      <svg viewBox="0 0 24 24" class="fico" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search: compress, trim video, BMI…" autocomplete="off" aria-label="Search tools">
+      <kbd>/</kbd>
+      <div id="qres" class="qres" role="listbox"></div>
+    </div>
+
+    <nav class="links" id="links">
+      <a href="/guides" data-link>Guides</a>
+      <a href="/c/image" data-link>Image</a>
+      <a href="/c/video" data-link>Video</a>
+      <a href="/c/pdf" data-link>PDF</a>
+      <a href="/c/text" data-link>Text</a>
+      <a href="/c/calc" data-link>Calculators</a>
+    </nav>
+
+    <button id="theme" class="ghost-btn" title="Switch theme" aria-label="Switch theme"></button>
+    <button id="burger" class="ghost-btn mob" aria-label="Menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<main id="main"><div class="wrap">
+      <div class="crumb"><a href="/" data-link>Home</a> / <a href="/c/video" data-link>Video</a> / <span>Compress video</span></div>
+      <div class="thead"><span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h5M4 4v5M4 4l6 6M20 20h-5M20 20v-5M20 20l-6-6"/><rect x="9" y="9" width="6" height="6" rx="1.2"/></svg></span><div><h1>Compress video</h1><p>Drop the resolution and bitrate until it fits wherever it needs to go.</p></div>
+        <button class="ghost-btn fav-big " data-fav="compress-video" aria-label="Favourite Compress video"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button></div>
+      <div class="box prose"><p>Reduce a video for a file-size limit by choosing bitrate and resolution. Duration, motion and audio also affect the final size; the estimate is a planning aid rather than a promise.</p><h2>How to use this tool</h2><ol><li>Select a video and trim unnecessary seconds.</li><li>Choose a width and bitrate suitable for the content; optionally remove audio.</li><li>Compress with the tab active, then verify the output size and playback.</li></ol></div>
+      <noscript><div class="box prose"><p>The instructions are available without JavaScript. Enable JavaScript to run the tool locally in your browser.</p></div></noscript>
+      <div class="box" id="workbench">
+    <div class="dropzone" data-dz tabindex="0" role="button">
+      <svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7.5 8.5L12 4l4.5 4.5"/><path d="M4 17v3h16v-3"/></svg><b>Drop the video to compress</b><span>Handy for email and messaging limits</span>
+      <input type="file" accept="video/*"  hidden>
+    </div>
+    <div class="stage" id="player" hidden></div>
+    
+  <div id="rangewrap" hidden>
+    <div class="grid2">
+      <div class="field"><div class="slider-head"><label class="lb">Starts at</label><b id="tin">0:00</b></div>
+        <input type="range" id="ra" min="0" value="0"></div>
+      <div class="field"><div class="slider-head"><label class="lb">Ends at</label><b id="tout">0:00</b></div>
+        <input type="range" id="rb" min="0" value="0"></div>
+    </div>
+    <p class="tiny dim" style="margin:8px 0 0">Selected length: <b id="tlen" class="mono">0:00</b></p>
+  </div>
+    <div class="grid2" style="margin-top:14px">
+      <div><label class="lb" for="res">Resolution</label><select id="res">
+        <option value="0">Leave as is</option><option value="1280" selected>720p &middot; 1280 px</option>
+        <option value="854">480p &middot; 854 px</option><option value="640">360p &middot; 640 px</option></select></div>
+      <div><label class="lb" for="br">Quality</label><select id="br">
+        <option value="4000000">High &middot; 4 Mbps</option><option value="2000000" selected>Medium &middot; 2 Mbps</option>
+        <option value="1000000">Light &middot; 1 Mbps</option><option value="500000">Minimum &middot; 0.5 Mbps</option></select></div>
+    </div>
+    <label class="opt" style="margin-top:12px"><input type="checkbox" id="mute"> No audio (saves a bit more)</label>
+    <div class="actions"><button class="btn" id="go" disabled><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h5M4 4v5M4 4l6 6M20 20h-5M20 20v-5M20 20l-6-6"/><rect x="9" y="9" width="6" height="6" rx="1.2"/></svg>Compress</button>
+      <span class="tiny dim" id="est"></span></div>
+    <div id="prog" hidden><div class="bar-meter"><i></i></div>
+  <p class="tiny dim" id="progtxt" style="margin:8px 0 0"></p></div>
+    <div class="filelist" id="out"></div>
+    <div class="note"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>Video is re-encoded by playing it through, so the job takes
+  roughly as long as the selected clip. Keep the tab visible while it runs.</span></div></div>
+      <div class="box prose"><h2>Worked example</h2><p>At 1 Mbps, 30 seconds of video uses roughly 3.75 MB before audio and container overhead. Use a higher bitrate if text or fast motion becomes blocky.</p><h2>Limitations and checks</h2><p>Output may be larger than an already efficient source. Audio increases the size beyond the video-only estimate. Browser support determines the actual output format.</p>
+        
+        <p>Read the <a href="/guides/browser-video" data-link>related workflow guide</a> for choosing settings and verifying exports.</p></div>
+      <div class="box prose"><h2>Which setting to touch first</h2>
+    <p>Trim unnecessary seconds first, then choose resolution and bitrate together. Lower resolution can reduce
+    detail; final size also depends on bitrate, duration and audio. Try 1 Mbps for a short talking-head sample,
+    then inspect motion and small text. Fast scenes may need a higher bitrate to avoid blocking.</p></div>
+      
+      <section class="sect"><div class="sect-head"><div><h2>Related tools</h2></div></div><div class="cards">
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="trim-video" title="Save to favourites" aria-label="Favourite Trim video"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/trim-video" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><path d="M8.2 7.6L20 18M20 6L8.2 16.4"/></svg></span><span><h3>Trim video</h3><p>Keep the part that matters and drop the rest.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="convert-video" title="Save to favourites" aria-label="Favourite Convert video"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/convert-video" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="14" height="13" rx="2.5"/><path d="M16.5 10.5l5-3v9l-5-3z"/></svg></span><span><h3>Convert video</h3><p>Move a clip to WebM or MP4 and set the frame rate.</p></span>
+      </a>
+    </article>
+    <article class="tcard rise seen">
+      <button class="fav " data-fav="video-to-gif" title="Save to favourites" aria-label="Favourite Video to GIF"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.6l2.5 5.2 5.6.8-4 3.9 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4-3.9 5.6-.8z"/></svg></button>
+      <a class="cardlink" href="/tools/video-to-gif" data-link>
+        <span class="ic"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M11 9.5H9a2 2 0 00-2 2v1a2 2 0 002 2h1.3v-2M13.5 9.5v5M16 14.5v-5h3M16 12h2.3"/></svg></span><span><h3>Video to GIF</h3><p>A short clip turned into an animated GIF, with a hand-written encoder.</p></span>
+      </a>
+    </article></div></section>
+    </div></main>
+
+<footer class="foot">
+  <div class="wrap fgrid">
+    <div>
+      <a class="brand" href="/" data-link>
+        <svg viewBox="0 0 32 32" class="mark" aria-hidden="true"><rect width="32" height="32" rx="9"/><path d="M8 21l5-10 4.4 6.6L20 13l4 8z"/></svg>
+        <span>Tool<em>Nez</em></span>
+      </a>
+      <p class="dim">A collection of <b id="ntools">36</b> tools, still free and still without an account.</p>
+    </div>
+    <div><h4>Tools</h4>
+      <a href="/c/image" data-link>Image</a><a href="/c/video" data-link>Video</a><a href="/c/pdf" data-link>PDF</a>
+      <a href="/c/text" data-link>Text</a><a href="/c/calc" data-link>Calculators</a><a href="/c/util" data-link>Utilities</a>
+    </div>
+    <div><h4>The site</h4>
+      <a href="/p/about" data-link>About ToolNez</a>
+      <a href="/p/editorial-policy" data-link>Editorial policy</a>
+      <a href="/guides" data-link>Guides</a>
+      <a href="/p/how-it-works" data-link>How it works</a>
+      <a href="/p/changelog" data-link>What's new</a>
+      <a href="/p/contact" data-link>Contact</a>
+    </div>
+    <div><h4>Legal</h4>
+      <a href="/p/privacy" data-link>Privacy</a>
+      <a href="/p/terms" data-link>Terms</a>
+      <a href="/p/cookies" data-link>Cookies and ads</a>
+    </div>
+  </div>
+  <div class="wrap fbottom">
+    <span>© <span id="yr">2026</span> ToolNez</span>
+    <span class="dim">Built with HTML, CSS and a lot of JavaScript. No accounts, no watermarks.</span>
+  </div>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="/lib.js"></script>
+<script src="/editorial.js"></script>
+<script src="/guides.js"></script>
+<script src="/site-pages.js"></script>
+<script src="/core.js"></script>
+<script src="/tools-media.js"></script>
+<script src="/tools-docs.js"></script>
+<script src="/tools-calc.js"></script>
+<script src="/tools-retouch.js"></script>
+<script>ToolNez.start();</script>
+</body>
+</html>
